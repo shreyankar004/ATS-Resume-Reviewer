@@ -1,0 +1,19 @@
+# Exported from Render on 2026-08-15T06:29:53Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: ATS-Resume-Reviewer
+      runtime: python
+      repo: https://github.com/shreyankar004/ATS-Resume-Reviewer
+      plan: free
+      envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      region: virginia
+      buildCommand: pip install -r requirements.txt
+      startCommand: streamlit run ats.py --server.port $PORT --server.address 0.0.0.0
+      autoDeployTrigger: commit
