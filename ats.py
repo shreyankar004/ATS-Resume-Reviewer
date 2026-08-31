@@ -22,7 +22,7 @@ from reportlab.lib.enums import TA_CENTER, TA_LEFT
 # ------------------- Setup -------------------
 load_dotenv()
 API_KEY = os.getenv("GROQ_API_KEY", "")
-GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")  # free-tier Groq model
+GROQ_MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")  # free-tier Groq model
 if not API_KEY:
     st.warning("⚠️ GROQ_API_KEY is not set. Add it to your .env file.")
 groq_client = Groq(api_key=API_KEY) if API_KEY else None
